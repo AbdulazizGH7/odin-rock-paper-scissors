@@ -40,7 +40,21 @@ function playRound(humanChoice, computerChoice) {
     console.log(`-----Scores-----\nYou: ${humanScore}\nOpponent: ${computerScore}`);
   }
   
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-  
-playRound(humanSelection, computerSelection);
+function playGame(){
+    for(let i = 0 ; i<5 ; i++){
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    }
+    if(humanScore > computerScore){
+        console.log("Congrats! you won the game.");
+    }
+    else if(humanScore < computerScore){
+        console.log("You lost! good luck next time.");
+    }
+    else{
+        console.log("It's a draw!");
+    }
+}
+
+playGame();
