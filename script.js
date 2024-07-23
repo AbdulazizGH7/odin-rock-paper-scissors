@@ -10,13 +10,8 @@ function getComputerChoice(){
     }
 }
 
-function getHumanChoice(){
-    let humanChoice = prompt("Choose Rock, Paper or Scissors");
-    humanChoice = humanChoice.toLowerCase();
-    while(humanChoice !== "rock" && humanChoice !== "paper"  && humanChoice !== "scissors"){
-        humanChoice = prompt("Please enter a valid choice !");
-        humanChoice = humanChoice.toLowerCase();
-    }
+function getHumanChoice(e){
+
     return humanChoice;
 }
 
@@ -25,19 +20,19 @@ let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
     if(humanChoice === computerChoice){
-        console.log("Draw!");
+        // console.log("Draw!");
     }
     else if((humanChoice === "rock" && computerChoice === "scissors") ||
             (humanChoice === "paper" && computerChoice === "rock" ) ||
             (humanChoice === "scissors" && computerChoice === "paper" )){
-        console.log(`You win! ${humanChoice} beats ${computerChoice}.`);
+        // console.log(`You win! ${humanChoice} beats ${computerChoice}.`);
         humanScore++;
     }
     else{
-        console.log(`You lose! ${computerChoice} beats ${humanChoice}.`);
+        // console.log(`You lose! ${computerChoice} beats ${humanChoice}.`);
         computerScore++;
     }
-    console.log(`-----Scores-----\nYou: ${humanScore}\nOpponent: ${computerScore}`);
+    // console.log(`-----Scores-----\nYou: ${humanScore}\nOpponent: ${computerScore}`);
   }
   
 function playGame(){
@@ -56,5 +51,12 @@ function playGame(){
         console.log("It's a draw!");
     }
 }
+
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) =>{
+    button.addEventListener("click", () =>{
+        alert(button.id);
+    });
+});
 
 
