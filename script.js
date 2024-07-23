@@ -10,53 +10,64 @@ function getComputerChoice(){
     }
 }
 
-function getHumanChoice(e){
-
-    return humanChoice;
-}
-
 let humanScore = 0;
 let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
+    const status = document.querySelector("#status");
+    const humanScoreText = document.querySelector("#humanScore");
+    const computerScoreText = document.querySelector("#aiScore");
     if(humanChoice === computerChoice){
-        // console.log("Draw!");
+        status.textContent = "Draw!";
     }
     else if((humanChoice === "rock" && computerChoice === "scissors") ||
             (humanChoice === "paper" && computerChoice === "rock" ) ||
             (humanChoice === "scissors" && computerChoice === "paper" )){
-        // console.log(`You win! ${humanChoice} beats ${computerChoice}.`);
         humanScore++;
+        humanScoreText.textContent = "" + humanScore;
+        status.textContent = `You win! ${humanChoice} beats ${computerChoice}.`;
     }
     else{
-        // console.log(`You lose! ${computerChoice} beats ${humanChoice}.`);
         computerScore++;
+        computerScoreText.textContent = "" + computerScore;
+        status.textContent = `You lose! ${computerChoice} beats ${humanChoice}.`;
     }
-    // console.log(`-----Scores-----\nYou: ${humanScore}\nOpponent: ${computerScore}`);
+    if(isThereWinner()){
+        determineWinner();
+        setTimeout(() => location.reload(), 3000);
+    }
   }
   
-function playGame(){
-    for(let i = 0 ; i<5 ; i++){
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-    }
-    if(humanScore > computerScore){
-        console.log("Congrats! you won the game.");
-    }
-    else if(humanScore < computerScore){
-        console.log("You lost! good luck next time.");
+function determineWinner(){
+    const status = document.querySelector("#status");
+    if(humanScore === 5){
+        status.textContent = "Congratulations you've won!";
     }
     else{
-        console.log("It's a draw!");
+        status.textContent = "Good luck in the next one; you lost this time!";
+    }
+}
+
+function isThereWinner(){
+    if(humanScore === 5 || computerScore === 5){
+        return true;
+    }
+    else{
+        return false;
     }
 }
 
 const buttons = document.querySelectorAll("button");
 buttons.forEach((button) =>{
     button.addEventListener("click", () =>{
-        alert(button.id);
+        button.style.backgroundColor = "#161c27";
+        setTimeout(() => button.style.backgroundColor = "#434b5a", 100);
+        if(!isThereWinner()){
+            playRound(button.id, getComputerChoice());
+        }
     });
 });
+
+
 
 
