@@ -1,0 +1,19 @@
+@import 'reset.css';
+
+/* setup */
+
+img{
+    display: block;
+}
+
+a{
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+p a, li a{
+    display: inline-block;
+    text-decoration: underline;
+}
+
+/* ------------ */
