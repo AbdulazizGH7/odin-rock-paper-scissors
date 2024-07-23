@@ -21,9 +21,22 @@ p a, li a{
 
 /* fonts */
 
-.pixel{
-    font-family: 'Public Pixel', sans-serif;
+body > *{
+    font-family: "Public Pixel", sans-serif;
     color: white;
+    text-align: center;
+}
+
+header{
+    font-size: 32px ; 
+}
+
+footer{
+    font-size: 12px ;
+}
+
+main h2{
+    font-size: 24px;
 }
 
 /* ------------ */
@@ -47,27 +60,58 @@ main{
     background-color: #222832;
 }
 
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+
 /* ------------ */
 
 /* header and footer section */
 
 header, footer{
     background-color: #111720;
-    text-align: center;
     padding: 15px;
 }
 
-header{
-    font-size: 32px ;
-    
+
+/* ------------ */
+
+/* score section */
+
+#scoreTitle{
+    margin-top: 20px;
 }
 
-footer{
-    font-size: 12px ;
+.score{
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+
+#humanScore, #aiScore{
+    margin-bottom: 10px;
 }
 
 /* ------------ */
 
+/* selection section */
+
+.selection ul{
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+}
+
+.selection button{
+    font-size: 75px;
+    border-radius: 25px;
+    background-color: #434b5a;
+    border: 2px black solid;
+}
+
+/* ------------ */
 
 
 
