@@ -109,9 +109,20 @@ header, footer{
     border-radius: 25px;
     background-color: #434b5a;
     border: 2px black solid;
+    max-width: fit-content;
 }
 
 /* ------------ */
+
+@media (max-width:700px){
+    .selection button{
+        font-size: 50px;
+    }
+
+    #status{
+        font-size: 20px ;
+    }
+}
 
 
 
