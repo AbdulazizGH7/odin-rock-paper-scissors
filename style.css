@@ -44,6 +44,7 @@ body{
 
 main{
     flex-grow: 1; /* to make the footer sticks at the bottom */
+    background-color: #222832;
 }
 
 /* ------------ */
@@ -58,7 +59,7 @@ header, footer{
 
 header{
     font-size: 32px ;
-
+    
 }
 
 footer{
